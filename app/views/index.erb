@@ -1,0 +1,14 @@
+<div class="container">
+  <div id="bordertop"></div>
+  <div id="content">
+  <p>beautiful, customizable slide shows.</p>
+  </div>
+  <div id="borderbottom"></div>
+  		<% if session['access_token'] %>
+  		<p>hey you are logged in </p>
+  		<% else %>
+  <button> <a href='/login'>login with facebook</a><br></button>
+  		<% end %>
+
+
+</div>
