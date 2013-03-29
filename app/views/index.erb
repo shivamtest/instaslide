@@ -1,14 +1,30 @@
+<h1>InstaSlide</h1>
 <div class="container">
   <div id="bordertop"></div>
   <div id="content">
   <p>beautiful, customizable slide shows.</p>
   </div>
   <div id="borderbottom"></div>
-  		<% if session['access_token'] %>
-  		<p>hey you are logged in </p>
-  		<% else %>
-  <button> <a href='/login'>login with facebook</a><br></button>
-  		<% end %>
+  		<% if session[:access_token_facebook] %>
+        <p>hey  you are logged in to facebook </p> 
+      <% else %>
+        <button> <a href='/login/facebook'>login with facebook</a><br></button>
+      <% end %>
 
+      <% if session[:access_token_instagram] %>
+        <p>Hey you are logged in to instragram </p>
+      <% else %>
+        <button><a href="/login/instagram">login with instagram</a></button>
+      <% end %>
+
+      <% if session[:access_token_flickr] %>
+        <p>Hey you are logged in with flickr</p>
+      <% else %>
+        <button><a id="flickr" href="/login/flickr" target="_blank">login with flickr</a></button>
+        <form id="flickr" action="/callback/flickr" method="get">
+          <input type="text" name="flickr" placeholder="Flickr key">
+          <input type="submit" value="login with flickr">
+        </form>
+      <% end %>
 
 </div>

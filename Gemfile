@@ -19,6 +19,8 @@ gem 'koala'
 gem 'fb_graph'
 
 gem 'rake'
+gem 'instagram'
+gem 'flickraw'
 
 group :test do
   gem 'faker'

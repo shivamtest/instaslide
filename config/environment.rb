@@ -23,7 +23,8 @@ require 'omniauth'
 require 'omniauth-facebook'
 require 'koala'
 require 'fb_graph'
-
+require 'instagram'
+require 'flickraw'
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
@@ -43,3 +44,7 @@ require APP_ROOT.join('config', 'database')
 Koala.http_service.http_options = {
   :ssl => { :ca_path => "/etc/ssl/certs" }
 }
+Instagram.configure do |config| 
+  config.client_id = "5337a0186c57406782838f1d8792fcf8"
+  config.client_secret = "87a100ec76a548069c59ac5505f8dafd"
+end

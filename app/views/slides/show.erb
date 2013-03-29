@@ -1,0 +1,7 @@
+<div id="slideshow">
+<% @slide.photos.each do |photo| %>
+<div>
+  <img src="<%= photo.photo_url %>" width="700" height="500">
+</div>
+<% end %>
+</div>

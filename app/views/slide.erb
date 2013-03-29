@@ -1,0 +1,41 @@
+<form action="/slide" method="post">
+
+  <input type="text" name="name" placeholder="slide name">
+  <input type="text" name="description" placholder ="slide description">
+  <input type="submit" value="create slide">
+</form> 
+
+<div id="facebook">
+  <h2>Facebook Photos</h2>
+  <% @img_srcs.each do |src| %>
+  <div class="main">
+    <a class="<%= src[0] %>" href="#"><%= src[1] %></a>
+    <img class="<%= src[0] %>" src="<%= src[3] %>" width="100" height="100">
+    <div id="<%=src[0]%>" class="photos">
+      <% graph.get_connections(src[0], "photos").each do |photo| %>
+      <img src="<%= photo['source']%>" width="100" height="100">
+    <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+<div class="instagram displayed_photos">
+  <h2>Instagram photos</h2>
+<div class="instagram_photos">
+  <% @instagram.user_media_feed.each do |pic| %>
+    <img class="instagram" src="<%= pic.link + "media/?size=t" %>">
+  <% end %>
+</div>
+</div>
+
+
+<div class="flickr displayed_photos">
+  <h2>Flickr photos</h2>
+  <% @flickr.photos.search(user_id: @flickr.people.findByUsername(username: "shivamd93").id).each do |p| %>
+      <img class="photos" src="<%= FlickRaw.url_s(@flickr.photos.getInfo(photo_id: p.id)) %>">
+  <% end %>
+</div>
+
+ 
